@@ -1,0 +1,26 @@
+model=Sequential()
+
+model.add(Convolution2D(32,(3,3),input_shape=(128,128,3),activation='relu'))
+
+model.add(MaxPooling2D(pool_size=(2,2)))
+
+model.add(Flatten())
+
+model.add(Dense(units=40,kernel_initializer='uniform',activation='relu'))
+model.add(Dense(units=70,kernel_initializer='random_uniform',activation='relu'))
+model.add(Dense(units=6,kernel_initializer='random_uniform',activation='softmax'))
+
+model.compile(loss='categorical_crossentropy',optimizer="adam",metrics=["accuracy"])
+
+model.fit(x_train,steps_per_epoch=168,epochs=3,validation_data=x_test,validation_steps=52)
+Epoch 1/3
+168/168 [==============================] - 45s 229ms/step - loss: 1.4802 - accuracy: 0.4315 - val_loss: 119.8421 - val_accuracy: 0.5577
+Epoch 2/3
+168/168 [==============================] - 38s 223ms/step - loss: 1.0562 - accuracy: 0.5982 - val_loss: 107.7073 - val_accuracy: 0.5288
+Epoch 3/3
+168/168 [==============================] - 36s 216ms/step - loss: 0.8406 - accuracy: 0.6905 - val_loss: 97.8494 - val_accuracy: 0.8173
+
+<keras.callbacks.History at 0x1e34c9b7310>
+
+model.save(r'C:\Users\uma25\project\flask\uploads\fruit.h5')
+

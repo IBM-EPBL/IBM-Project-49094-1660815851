@@ -1,0 +1,34 @@
+model=Sequential()
+
+model.add(Convolution2D(32,(3,3),input_shape=(128,128,3),activation='relu'))
+
+model.add(MaxPooling2D(pool_size=(2,2)))
+
+model.add(Flatten())
+
+model.save(r'C:\Users\uma25\project\flask\uploads\fruit.h5')
+
+model.summary()
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 126, 126, 32)      896       
+                                                                 
+ max_pooling2d (MaxPooling2D  (None, 63, 63, 32)       0         
+ )                                                               
+                                                                 
+ flatten (Flatten)           (None, 127008)            0         
+                                                                 
+ dense (Dense)               (None, 40)                5080360   
+                                                                 
+ dense_1 (Dense)             (None, 70)                2870      
+                                                                 
+ dense_2 (Dense)             (None, 6)                 426       
+                                                                 
+=================================================================
+Total params: 5,084,552
+Trainable params: 5,084,552
+Non-trainable params: 0
+
+

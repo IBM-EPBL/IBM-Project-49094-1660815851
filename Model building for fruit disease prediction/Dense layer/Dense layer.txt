@@ -1,0 +1,8 @@
+model.add(Dense(units=40,kernel_initializer='uniform',activation='relu'))
+model.add(Dense(units=70,kernel_initializer='random_uniform',activation='relu'))
+model.add(Dense(units=6,kernel_initializer='random_uniform',activation='softmax'))
+
+model.compile(loss='categorical_crossentropy',optimizer="adam",metrics=["accuracy"])
+
+model.fit(x_train,steps_per_epoch=168,epochs=3,validation_data=x_test,validation_steps=52)
+
